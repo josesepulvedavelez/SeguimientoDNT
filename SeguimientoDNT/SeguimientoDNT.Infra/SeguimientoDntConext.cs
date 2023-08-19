@@ -13,5 +13,15 @@ namespace SeguimientoDNT.Infra
             
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Seguimiento>()
+                .HasOne(s => s.Persona)
+                .WithMany(p => p.Seguimiento)
+                .HasForeignKey(s => s.IdPersona);
+        }
+
     }
 }

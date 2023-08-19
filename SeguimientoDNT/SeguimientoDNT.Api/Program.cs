@@ -17,6 +17,8 @@ builder.Services.AddDbContext<SeguimientoDntConext>(options =>
 });
 
 builder.Services.AddScoped<IPersonaRepository, PersonaRepository>();
+builder.Services.AddScoped<ISeguimientoRepository, SeguimientoRepository>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -59,6 +59,7 @@ namespace SeguimientoDNT.Core.Models
 
         public DateTime? FechaRegistro { get; set; }
 
-        public virtual Persona Persona { get; set; }
+        //[ForeignKey("IdPersona")]
+        public virtual Persona? Persona { get; set; }
     }
 }
