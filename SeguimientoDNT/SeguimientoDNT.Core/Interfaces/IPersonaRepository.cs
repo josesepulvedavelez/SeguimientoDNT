@@ -11,5 +11,6 @@ namespace SeguimientoDNT.Core.Interfaces
     {
         Task<IEnumerable<Persona>> GetPersonas();
         Task<int> SetPersona(Persona persona);
+        Task<byte[]> ExportarExcel();
     }
 }

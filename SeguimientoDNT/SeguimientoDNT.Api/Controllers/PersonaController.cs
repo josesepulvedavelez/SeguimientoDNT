@@ -34,5 +34,13 @@ namespace SeguimientoDNT.Api.Controllers
             return result;
         }
 
+        [HttpGet("ExportarExcel")]
+        public async Task<IActionResult> ExportarExcel()
+        {
+            var excelData = await _personaRepository.ExportarExcel();
+
+            return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "persona_seguimiento.xlsx");
+        }
+
     }
 }
