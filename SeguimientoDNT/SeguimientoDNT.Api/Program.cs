@@ -1,3 +1,5 @@
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using FluentAssertions.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SeguimientoDNT.Core.Interfaces;
@@ -18,6 +20,11 @@ builder.Services.AddDbContext<SeguimientoDntConext>(options =>
 
 builder.Services.AddScoped<IPersonaRepository, PersonaRepository>();
 builder.Services.AddScoped<ISeguimientoRepository, SeguimientoRepository>();
+
+builder.Services.AddHttpClient("Cliente", client =>
+{
+    client.BaseAddress = new Uri(configuration["AppSettings:ServicioUrl"]);
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
